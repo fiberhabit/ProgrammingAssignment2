@@ -1,0 +1,39 @@
+## These steps test to make sure result of cacheSolve is really an invoice 
+## of the result of makeCacheMatrix.  (KDE, 2015-06-20).
+
+source('cachematrix.R')   ## source the functions
+N<-matrix(c(sample(6),sample(6),sample(6),sample(6),sample(6),sample(6)),6,6)   ## builds a matrix to test on
+a <- makeCacheMatrix(N)
+ainv <- cacheSolve(a)
+
+## verify that the two matrices are invoices
+## use matrix multiplication %*%, round to within two decimal places
+## Without rounding, it's just very tiny decimals.
+
+round(a$get() %*% ainv, 2)
+
+###################################
+
+## To make sure cacheSolve(a) returns cached inverse, run
+## cacheSolve(a) twice.  It should retrieve the cached copy
+## the second run.  e.g. for matrix M
+
+a <- makeCacheMatrix(M)
+cacheSolve(a)
+cacheSolve(a)
+
+###################################
+
+## To test to see that retrieving cached copy is faster,
+## we need to test on a larger matrix.  Follow these steps
+## using file test_cacheMatrix.R
+
+set.seed(123456)
+r <- rnorm(1000000)
+mtx2 <- matrix(r, nrow=1000, ncol = 1000)
+test(mtx2)
+
+##### Results #####
+Time difference of 1.273017 secs
+retrieving cached inverse matrix
+Time difference of 0 secs
