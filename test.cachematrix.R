@@ -1,5 +1,4 @@
-## No longer sure where I copied this code from, but it worked well for me.  
-## If I remember where it came from, I'll add it in here (KDE, 2015-06-20).
+## From: http://masterr.org/r/how-to-cache-a-matrix-inversion-in-r/ (KDE, 2015-06-20).
 
 ## To test out these functions. I wrote a function called test(), 
 ## which takes in any invertible matrix, calculates its inverse twice 
