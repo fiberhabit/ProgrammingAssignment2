@@ -2,6 +2,9 @@
 ## to store the Inverse of a square Matrix
 ## and another function to calculate the inverse if needed
 ## or return the stored value if the original matrix is unchanged.
+##
+## Assumes input matrix IS invertible.
+##
 ## (KDE, 2015-06-20)
 
 ## Function makeCacheMatrix builds four functions 
